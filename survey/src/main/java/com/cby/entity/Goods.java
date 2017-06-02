@@ -16,15 +16,15 @@ public class Goods {
     @Id
     @GeneratedValue
     private Integer id; //商品ID
-    @NotNull(message = "商品图片不能为空")
+
     private String img; //商品图片
-    @NotNull
+
     private String name;//商品名称
-    @NotNull
+
     private String time;//开放购买时间
-    @NotNull
+
     private String number;//商品数量
-    @NotNull
+
     private Integer price;//商品价格
 
     public Integer getPrice() {
