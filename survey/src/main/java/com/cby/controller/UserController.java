@@ -32,6 +32,10 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return ResultUtils.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
+        List<User> listByUserName = userRepository.findByUserName(user.getUserName());
+        if (listByUserName.size() != 0){
+            return ResultUtils.error(1,"用户名已存在");
+        }
         return ResultUtils.success(userRepository.save(user));
     }
 
@@ -42,7 +46,7 @@ public class UserController {
      * @return
      */
     @PostMapping(value = "/login")
-    public Result login(User user) {
+    public Result login(@Valid User user) {
         List<User> listByUserName = userRepository.findByUserName(user.getUserName());
         if (listByUserName.size() == 0)
             return ResultUtils.error(1, "账号不存在");

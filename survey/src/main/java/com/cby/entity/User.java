@@ -1,9 +1,6 @@
 package com.cby.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -16,9 +13,10 @@ public class User {
     @GeneratedValue
     private Integer id;
     private String uId;
-    @NotNull( message = "用户名不能为空")
+    @NotNull(message = "用户名不能为空")
+    @Column(unique = true)
     private String userName;
-    @NotNull( message = "密码不能为空")
+    @NotNull(message = "密码不能为空")
     private String password;
     private String nikName;
     private String phone;
