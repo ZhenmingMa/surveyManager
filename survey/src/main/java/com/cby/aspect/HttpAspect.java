@@ -31,6 +31,7 @@ public class HttpAspect {
     @Autowired
     private VisitRecordRepo visitRecordRepo;
     @Pointcut("execution(public * com.cby.controller.UserController.*(..) )")
+
     public void visitRecord(){
         System.out.println("visitRecord");
     }

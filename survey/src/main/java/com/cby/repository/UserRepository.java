@@ -12,6 +12,8 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 
     //通过用户名来查询
     public List<User> findByUserName(String userName);
+    //通过用户id来查询
+    public User findByUId(String uId);
     //检查用户名和密码
     public List<User> findByUserNameAndPassword(String userName,String password);
 }

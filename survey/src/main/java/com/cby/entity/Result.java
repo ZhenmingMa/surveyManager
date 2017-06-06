@@ -1,6 +1,7 @@
 package com.cby.entity;
 
 /**
+ * 返回结果
  * Created by Ma on 2017/6/1.
  */
 public class Result<T> {

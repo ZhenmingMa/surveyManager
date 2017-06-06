@@ -2,8 +2,10 @@ package com.cby.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
+ * 用户
  * Created by Ma on 2017/5/31.
  */
 @Entity
@@ -17,21 +19,21 @@ public class User {
     @Column(unique = true)
     private String userName;
     @NotNull(message = "密码不能为空")
-    private String password;
-    private String nikName;
-    private String phone;
-    private String money;
+    private String password; //
+    private String nicName; //昵称
+    private String phone; //电话号码
 
-    public String getuId() {
-        return uId;
-    }
+    @OneToOne
+    private MyBonus myBonus; //奖金
+    @OneToOne
+    private MyPoint myPoint;//积分
 
-    public void setuId(String uId) {
-        this.uId = uId;
-    }
+    @OneToMany
+    private List<Address> address; //收货地址
 
     public User() {
     }
+
 
     public Integer getId() {
         return id;
@@ -39,6 +41,14 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getuId() {
+        return uId;
+    }
+
+    public void setuId(String uId) {
+        this.uId = uId;
     }
 
     public String getUserName() {
@@ -57,12 +67,12 @@ public class User {
         this.password = password;
     }
 
-    public String getNikName() {
-        return nikName;
+    public String getNicName() {
+        return nicName;
     }
 
-    public void setNikName(String nikName) {
-        this.nikName = nikName;
+    public void setNicName(String nicName) {
+        this.nicName = nicName;
     }
 
     public String getPhone() {
@@ -73,11 +83,27 @@ public class User {
         this.phone = phone;
     }
 
-    public String getMoney() {
-        return money;
+    public MyBonus getMyBonus() {
+        return myBonus;
     }
 
-    public void setMoney(String money) {
-        this.money = money;
+    public void setMyBonus(MyBonus myBonus) {
+        this.myBonus = myBonus;
+    }
+
+    public MyPoint getMyPoint() {
+        return myPoint;
+    }
+
+    public void setMyPoint(MyPoint myPoint) {
+        this.myPoint = myPoint;
+    }
+
+    public List<Address> getAddress() {
+        return address;
+    }
+
+    public void setAddress(List<Address> address) {
+        this.address = address;
     }
 }
