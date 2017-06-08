@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 public class Address {
     @Id
     @GeneratedValue
-    @NotNull(message = "id不能为空")
     private Integer id;
     private String name;
     private String phone;

@@ -14,9 +14,9 @@ public class MyPoint {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(columnDefinition = "0")
+
     private String dayPoint; //每日登录积分
-    @Column(columnDefinition = "0")
+
     private String sharePoint;//分享积分
 
     public MyPoint() {

@@ -39,7 +39,6 @@ public class HttpAspect {
     public void beforeVisitRecord(JoinPoint joinPoint){
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-
         VisitRecord visitRecord = new VisitRecord();
         visitRecord.setIp(request.getRemoteAddr());
         Date date = new Date();

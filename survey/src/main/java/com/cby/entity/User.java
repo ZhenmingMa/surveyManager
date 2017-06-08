@@ -1,5 +1,7 @@
 package com.cby.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -11,20 +13,23 @@ import java.util.List;
 @Entity
 public class User {
 
+
     @Id
     @GeneratedValue
     private Integer id;
+
     private String uId;
+    private String token;
     @NotNull(message = "用户名不能为空")
     @Column(unique = true)
     private String userName;
-    @NotNull(message = "密码不能为空")
     private String password; //
     private String nicName; //昵称
     private String phone; //电话号码
 
     @OneToOne
     private MyBonus myBonus; //奖金
+
     @OneToOne
     private MyPoint myPoint;//积分
 
@@ -33,7 +38,6 @@ public class User {
 
     public User() {
     }
-
 
     public Integer getId() {
         return id;
@@ -49,6 +53,14 @@ public class User {
 
     public void setuId(String uId) {
         this.uId = uId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getUserName() {

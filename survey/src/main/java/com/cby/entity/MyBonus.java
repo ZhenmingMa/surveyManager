@@ -16,9 +16,9 @@ public class MyBonus {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(columnDefinition = "0")
+
     private String answerBonus; //问卷奖励
-    @Column(columnDefinition = "0")
+
     private String inviteBonus; //邀请奖励
 
     public MyBonus() {

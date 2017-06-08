@@ -7,6 +7,6 @@ spring:
     show-sql: true
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/dbsurvey
+    url: jdbc:mysql://127.0.0.1:3306/dbsurveyy
     username: root
     password: root

@@ -1,12 +1,15 @@
 package com.cby.controller;
 
+import com.cby.annotation.UserAccess;
 import com.cby.entity.*;
 import com.cby.enums.ResultEnum;
 import com.cby.repository.AddressRepository;
 import com.cby.repository.MyBonusRepository;
 import com.cby.repository.MyPointRepository;
 import com.cby.repository.UserRepository;
+import com.cby.service.UserService;
 import com.cby.utils.ResultUtils;
+import com.cby.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Ma on 2017/5/31.
@@ -30,6 +34,9 @@ public class UserController {
     private MyBonusRepository myBonusRepository;
     @Autowired
     private AddressRepository addressRepository;
+
+    @Autowired
+    private UserService userService;
     /**
      * 注册
      *
@@ -39,12 +46,13 @@ public class UserController {
     @PostMapping(value = "/regisit")
     public Result regisit(@Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return ResultUtils.error(1, bindingResult.getFieldError().getDefaultMessage());
+            return ResultUtils.error(ResultEnum.UNKONW_ERROR);
         }
         List<User> listByUserName = userRepository.findByUserName(user.getUserName());
         if (listByUserName.size() != 0){
-            return ResultUtils.error(1,"用户名已存在");
+            return ResultUtils.error(ResultEnum.ACCOUNT_HAS_EXIST);
         }
+        user.setuId(UUIDUtils.id(12));
         return ResultUtils.success(userRepository.save(user));
     }
 
@@ -58,26 +66,26 @@ public class UserController {
     public Result login(@Valid User user) {
         List<User> listByUserName = userRepository.findByUserName(user.getUserName());
         if (listByUserName.size() == 0)
-            return ResultUtils.error(1, "账号不存在");
+            return ResultUtils.error(ResultEnum.ACCOUNT_NO_EXIST);
 
         List<User> list = userRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
         if (list.size() == 0) {
-            return ResultUtils.error(1, "密码错误");
+            return ResultUtils.error(ResultEnum.PASSWORD_ERROR);
         }
-        return ResultUtils.success(list.get(0));
+        return ResultUtils.success(userService.login(list.get(0)));
     }
 
     /**
      * 更新用户信息
-     *
-     * @param user
      * @param bindingResult
      * @return
      */
+    @UserAccess
     @PutMapping(value = "/login")
-    public Result userUpdate(@Valid User user, BindingResult bindingResult) {
+    public Result userUpdate(User user,
+                              BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return ResultUtils.error(1, bindingResult.getFieldError().getDefaultMessage());
+            return ResultUtils.error(101,bindingResult.getFieldError().getDefaultMessage());
         } else {
             return ResultUtils.success(userRepository.save(user));
         }
@@ -110,17 +118,14 @@ public class UserController {
 
     /**
      *添加收货地址
-     * @param uId
+     * @param token
      * @param address
      * @return
      */
+    @UserAccess
     @PostMapping(value = "/addAddress")
-    public Result addAddress(@RequestParam("uId") String uId, Address address){
-        User user = userRepository.findByUId(uId);
-        List<Address> list = user.getAddress();
-        list.add(addressRepository.save(address));
-        user.setAddress(list);
-        return ResultUtils.success(userRepository.save(user));
+    public Result addAddress(@RequestParam("token") String token, Address address){
+        return ResultUtils.success( userService.addAddress(token,address));
     }
 
     /**
@@ -128,9 +133,12 @@ public class UserController {
      * @param address
      * @return
      */
+    @UserAccess
     @PutMapping(value = "/updateAddress")
-    public Result updateAddress(@Valid Address address){
-        return ResultUtils.success(addressRepository.save(address));
+    public Result updateAddress(@RequestParam("token") String token, Address address){
+        if (address.getId()==null)
+            return ResultUtils.error(ResultEnum.ADDRESS_NO_ID);
+        return ResultUtils.success(userService.updateAddress(token,address));
     }
 
     /**
@@ -139,9 +147,9 @@ public class UserController {
      * @param id
      * @return
      */
+    @UserAccess
     @PutMapping(value = "/setDefaultAddress")
     public Result setDefaultAddress(@RequestParam("uId") String uId,@RequestParam("id")Integer id){
-
         User user = userRepository.findByUId(uId);
         List<Address> list = user.getAddress();
         for (Address address:list) {

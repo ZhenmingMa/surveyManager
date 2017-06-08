@@ -16,4 +16,5 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     public User findByUId(String uId);
     //检查用户名和密码
     public List<User> findByUserNameAndPassword(String userName,String password);
+
 }
