@@ -12,6 +12,7 @@ import com.cby.utils.ResultUtils;
 import com.cby.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,6 +38,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
     /**
      * 注册
      *
@@ -49,7 +51,7 @@ public class UserController {
             return ResultUtils.error(ResultEnum.UNKONW_ERROR);
         }
         List<User> listByUserName = userRepository.findByUserName(user.getUserName());
-        if (listByUserName.size() != 0){
+        if (listByUserName.size() != 0) {
             return ResultUtils.error(ResultEnum.ACCOUNT_HAS_EXIST);
         }
         user.setuId(UUIDUtils.id(12));
@@ -77,89 +79,98 @@ public class UserController {
 
     /**
      * 更新用户信息
+     *
      * @param bindingResult
      * @return
      */
     @UserAccess
     @PutMapping(value = "/login")
-    public Result userUpdate(User user,
-                              BindingResult bindingResult) {
+    public Result userUpdate(String token, User user,
+                             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return ResultUtils.error(101,bindingResult.getFieldError().getDefaultMessage());
+            return ResultUtils.error(101, bindingResult.getFieldError().getDefaultMessage());
         } else {
+            User user_map = UserService.loginUserMap.get(token);
+            user.setId(user_map.getId());
             return ResultUtils.success(userRepository.save(user));
         }
     }
 
+
     /**
      * 更新我的积分
+     *
      * @param uId
      * @param point
      * @return
      */
     @PostMapping(value = "/updateMyPoint")
-    public Result updateMyPoint(@RequestParam("uId") String uId,MyPoint point){
+    public Result updateMyPoint(@RequestParam("uId") String uId, MyPoint point) {
         User user = userRepository.findByUId(uId);
         user.setMyPoint(myPointRepository.save(point));
         return ResultUtils.success(userRepository.save(user));
     }
+
     /**
      * 更新我的奖金
+     *
      * @param uId
      * @param myBonus
      * @return
      */
     @PostMapping(value = "/updateMyBonus")
-    public Result updateMyBonus(@RequestParam("uId") String uId,MyBonus myBonus){
+    public Result updateMyBonus(@RequestParam("uId") String uId, MyBonus myBonus) {
         User user = userRepository.findByUId(uId);
         user.setMyBonus(myBonusRepository.save(myBonus));
         return ResultUtils.success(userRepository.save(user));
     }
 
     /**
-     *添加收货地址
+     * 添加收货地址
+     *
      * @param token
      * @param address
      * @return
      */
     @UserAccess
     @PostMapping(value = "/addAddress")
-    public Result addAddress(@RequestParam("token") String token, Address address){
-        return ResultUtils.success( userService.addAddress(token,address));
+    public Result addAddress(@RequestParam("token") String token, Address address) {
+        return ResultUtils.success(userService.addAddress(token, address));
     }
 
     /**
      * 更新收货地址
+     *
      * @param address
      * @return
      */
     @UserAccess
     @PutMapping(value = "/updateAddress")
-    public Result updateAddress(@RequestParam("token") String token, Address address){
-        if (address.getId()==null)
+    public Result updateAddress(@RequestParam("token") String token, Address address) {
+        if (address.getId() == null)
             return ResultUtils.error(ResultEnum.ADDRESS_NO_ID);
-        return ResultUtils.success(userService.updateAddress(token,address));
+        return ResultUtils.success(userService.updateAddress(token, address));
     }
 
     /**
      * 设置默认收货地址
-     * @param uId
+     *
+     * @param token
      * @param id
      * @return
      */
     @UserAccess
-    @PutMapping(value = "/setDefaultAddress")
-    public Result setDefaultAddress(@RequestParam("uId") String uId,@RequestParam("id")Integer id){
-        User user = userRepository.findByUId(uId);
-        List<Address> list = user.getAddress();
-        for (Address address:list) {
-            if (address.getId()==id)
-                address.setCurrent(true);
-            else
-                address.setCurrent(false);
-        }
-        user.setAddress(list);
-        return ResultUtils.success(userRepository.save(user));
-    }
+    @PostMapping(value = "/setDefaultAddress")
+    public Result setDefaultAddress(@RequestParam("token") String token, @RequestParam("id") Integer id) {
 
+        return ResultUtils.success(userService.setDefaultAddress(token,id));
+    }
+    @UserAccess
+    @PostMapping(value = "/deleteAddress")
+    public Result deleteAddress(@RequestParam("token") String token, @RequestParam("id") Integer id) {
+//           Address address =addressRepository.findOne(id);
+//           if (address == null)
+//               return ResultUtils.error(ResultEnum.ADDRESS_ID_NO_EXIST);
+        return ResultUtils.success(userService.deleteAddress(token,id));
+    }
 }

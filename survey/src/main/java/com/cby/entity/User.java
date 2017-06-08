@@ -17,7 +17,6 @@ public class User {
     @Id
     @GeneratedValue
     private Integer id;
-
     private String uId;
     private String token;
     @NotNull(message = "用户名不能为空")
@@ -117,5 +116,21 @@ public class User {
 
     public void setAddress(List<Address> address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", uId='" + uId + '\'' +
+                ", token='" + token + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", nicName='" + nicName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", myBonus=" + myBonus +
+                ", myPoint=" + myPoint +
+                ", address=" + address +
+                '}';
     }
 }

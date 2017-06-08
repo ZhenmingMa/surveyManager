@@ -15,10 +15,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Ma on 2017/5/31.
@@ -44,6 +41,7 @@ public class UserService {
 
     /**
      * 注册方法
+     *
      * @param user
      */
     public void regisit(User user) {
@@ -52,6 +50,7 @@ public class UserService {
 
     /**
      * 登录带token返回
+     *
      * @return
      */
     public User login(User user) {
@@ -82,11 +81,12 @@ public class UserService {
 
     /**
      * 添加地址
+     *
      * @param token
      * @param address
      * @return
      */
-    public User addAddress(String token,Address address){
+    public User addAddress(String token, Address address) {
         User user = loginUserMap.get(token);
         List<Address> list = user.getAddress();
         if (list.size() == 0)
@@ -100,13 +100,60 @@ public class UserService {
 
     /**
      * 更新地址
+     *
      * @param token
      * @param address
      * @return
      */
-    public User updateAddress(String token,Address address){
+    public User updateAddress(String token, Address address) {
         User user = loginUserMap.get(token);
         addressRepository.save(address);
         return userRepository.findByUId(user.getuId());
     }
+
+    /**
+     * 设置默认地址
+     *
+     * @param token
+     * @param id
+     * @return
+     */
+    public User setDefaultAddress(String token, Integer id) {
+        User user = loginUserMap.get(token);
+        List<Address> list = user.getAddress();
+        for (Address address : list) {
+            if (address.getId() == id)
+                address.setCurrent(true);
+            else
+                address.setCurrent(false);
+            addressRepository.save(address);
+        }
+        user.setAddress(list);
+        return userRepository.save(user);
+    }
+
+    public User deleteAddress(String token, Integer id) {
+        System.out.println(token+" -- "+id);
+        User user = loginUserMap.get(token);
+        System.out.println(user.toString());
+        List<Address> list = user.getAddress();
+        List<Address> list1 = new ArrayList<>();
+        for (Address address :
+                list) {
+            if (address.getId()!=id){
+                list1.add(address);
+                System.out.println(address.getId());
+            }
+        }
+        for (Address address:list1){
+            System.out.print(address.getId()+" ");
+        }
+
+        user.setAddress(list1);
+        System.out.println(user.toString());
+        User user1 = userRepository.save(user);
+
+        return user1;
+    }
+
 }
