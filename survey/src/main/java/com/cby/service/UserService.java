@@ -164,7 +164,8 @@ public class UserService {
 
     public  List<Address> getAllAddress(String token){
         User user = loginUserMap.get(token);
-        List<Address> list = user.getAddress();
+        User user1 =  userRepository.findOne(user.getId());
+        List<Address> list = user1.getAddress();
         return list;
     }
 }

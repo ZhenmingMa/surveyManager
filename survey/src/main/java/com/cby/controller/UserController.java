@@ -147,7 +147,7 @@ public class UserController {
      * @return
      */
     @UserAccess
-    @PutMapping(value = "/updateAddress")
+    @PostMapping(value = "/updateAddress")
     public Result updateAddress(@RequestParam("token") String token, Address address) {
         if (address.getId() == null)
             return ResultUtils.error(ResultEnum.ADDRESS_NO_ID);

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.cby.SurveyApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.062 sec - in com.cby.SurveyApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.151 sec - in com.cby.SurveyApplicationTests
