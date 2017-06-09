@@ -100,13 +100,14 @@ public class UserController {
     /**
      * 更新我的积分
      *
-     * @param uId
+     * @param token
      * @param point
      * @return
      */
+    @UserAccess
     @PostMapping(value = "/updateMyPoint")
-    public Result updateMyPoint(@RequestParam("uId") String uId, MyPoint point) {
-        User user = userRepository.findByUId(uId);
+    public Result updateMyPoint(@RequestParam("token") String token, MyPoint point) {
+        User user = UserService.loginUserMap.get(token);
         user.setMyPoint(myPointRepository.save(point));
         return ResultUtils.success(userRepository.save(user));
     }
@@ -114,13 +115,14 @@ public class UserController {
     /**
      * 更新我的奖金
      *
-     * @param uId
+     * @param token
      * @param myBonus
      * @return
      */
+    @UserAccess
     @PostMapping(value = "/updateMyBonus")
-    public Result updateMyBonus(@RequestParam("uId") String uId, MyBonus myBonus) {
-        User user = userRepository.findByUId(uId);
+    public Result updateMyBonus(@RequestParam("token") String token, MyBonus myBonus) {
+        User user =  UserService.loginUserMap.get(token);
         user.setMyBonus(myBonusRepository.save(myBonus));
         return ResultUtils.success(userRepository.save(user));
     }
@@ -165,6 +167,13 @@ public class UserController {
 
         return ResultUtils.success(userService.setDefaultAddress(token,id));
     }
+
+    /**
+     * 删除收获地址
+     * @param token
+     * @param id
+     * @return
+     */
     @UserAccess
     @PostMapping(value = "/deleteAddress")
     public Result deleteAddress(@RequestParam("token") String token, @RequestParam("id") Integer id) {
@@ -172,5 +181,16 @@ public class UserController {
 //           if (address == null)
 //               return ResultUtils.error(ResultEnum.ADDRESS_ID_NO_EXIST);
         return ResultUtils.success(userService.deleteAddress(token,id));
+    }
+
+    /**
+     * 获取所有收货地址
+     * @param token
+     * @return
+     */
+    @UserAccess
+    @GetMapping(value = "getAllAddress")
+    public Result getALlAddress(@RequestParam("token")String token){
+        return ResultUtils.success(userService.getAllAddress(token));
     }
 }

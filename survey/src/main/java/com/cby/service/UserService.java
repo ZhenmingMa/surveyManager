@@ -132,6 +132,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    /**
+     * 删除收货地址
+     * @param token
+     * @param id
+     * @return
+     */
     public User deleteAddress(String token, Integer id) {
         System.out.println(token+" -- "+id);
         User user = loginUserMap.get(token);
@@ -156,4 +162,9 @@ public class UserService {
         return user1;
     }
 
+    public  List<Address> getAllAddress(String token){
+        User user = loginUserMap.get(token);
+        List<Address> list = user.getAddress();
+        return list;
+    }
 }
