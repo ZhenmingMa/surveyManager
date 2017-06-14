@@ -96,6 +96,11 @@ public class UserController {
         }
     }
 
+    @PostMapping(value = "/checkStatus")
+    public Result checkStatus(@RequestParam("token") String token){
+         return ResultUtils.success( userService.checkStatus(token));
+    }
+
 
     /**
      * 更新我的积分

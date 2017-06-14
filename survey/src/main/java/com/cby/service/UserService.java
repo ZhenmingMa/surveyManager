@@ -1,6 +1,7 @@
 package com.cby.service;
 
 import com.cby.entity.Address;
+import com.cby.entity.Result;
 import com.cby.entity.User;
 import com.cby.repository.AddressRepository;
 import com.cby.repository.UserRepository;
@@ -167,5 +168,10 @@ public class UserService {
         User user1 =  userRepository.findOne(user.getId());
         List<Address> list = user1.getAddress();
         return list;
+    }
+
+    public User checkStatus(String token){
+        User user  = loginUserMap.get(token);
+        return user;
     }
 }
