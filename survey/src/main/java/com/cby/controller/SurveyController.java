@@ -1,9 +1,6 @@
 package com.cby.controller;
 
-import com.cby.entity.AnswerDemand;
-import com.cby.entity.Question;
-import com.cby.entity.Result;
-import com.cby.entity.Survey;
+import com.cby.entity.*;
 import com.cby.repository.AnswerDemandRepo;
 import com.cby.repository.QuestionRepository;
 import com.cby.repository.SurveyRepository;
@@ -58,9 +55,44 @@ public class SurveyController {
         return surveyService.getAllSurvey();
     }
 
-    @PostMapping(value = "updateSurvey")
+    /**
+     * 更新问卷
+     * @param survey
+     * @return
+     */
+    @PostMapping(value = "/updateSurvey")
     public Result updateSurvey(@RequestBody Survey survey) {
         return surveyService.updateSurvey(survey);
+    }
+
+    /**
+     *通过问卷id查询所有的结果
+     * @param id
+     * @return
+     */
+    @PostMapping(value = "/getSurveyBySId")
+    public Result getSurveyBySId(@RequestParam("sId") Integer id) {
+        return surveyService.getSurveyBySId(id);
+    }
+
+    /**
+     * 提交问卷
+     * @param saveUserSurvey
+     * @return
+     */
+    @PostMapping(value = "/commitSurvey")
+    public Result commitSurvey(@RequestBody SaveUserSurvey saveUserSurvey) {
+        return surveyService.commitSurvey(saveUserSurvey);
+    }
+
+    /**
+     * 得到当前用户已经完成的调研
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/getUserSurvey")
+    public Result getUserSurvey(@RequestParam("uId") String id) {
+        return surveyService.getUserSurvey(id);
     }
 
 }
