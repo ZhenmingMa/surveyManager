@@ -14,12 +14,17 @@ public class MyPoint {
     @Id
     @GeneratedValue
     private Integer id;
-
+    @Column(name = "dayPoint",columnDefinition = "varchar(255) not null default '0' ")
     private String dayPoint; //每日登录积分
-
+    @Column(name = "sharePoint",columnDefinition = "varchar(255) not null default '0' ")
     private String sharePoint;//分享积分
 
     public MyPoint() {
+    }
+
+    public MyPoint(String dayPoint, String sharePoint) {
+        this.dayPoint = dayPoint;
+        this.sharePoint = sharePoint;
     }
 
     public Integer getId() {

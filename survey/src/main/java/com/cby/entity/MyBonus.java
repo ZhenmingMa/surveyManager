@@ -17,11 +17,17 @@ public class MyBonus {
     @GeneratedValue
     private Integer id;
 
+    @Column(name = "answerBonus",columnDefinition = "varchar(255) not null default '0' ")
     private String answerBonus; //问卷奖励
-
+    @Column(name = "inviteBonus",columnDefinition = "varchar(255) not null default '0' ")
     private String inviteBonus; //邀请奖励
 
     public MyBonus() {
+    }
+
+    public MyBonus(String answerBonus, String inviteBonus) {
+        this.answerBonus = answerBonus;
+        this.inviteBonus = inviteBonus;
     }
 
     public Integer getId() {

@@ -55,6 +55,12 @@ public class UserController {
             return ResultUtils.error(ResultEnum.ACCOUNT_HAS_EXIST);
         }
         user.setuId(UUIDUtils.id(12));
+         MyBonus myBonus = new MyBonus("0","0");
+        myBonusRepository.save(myBonus);
+        user.setMyBonus(myBonus);
+        MyPoint myPoint = new MyPoint("0","0");
+        myPointRepository.save(myPoint);
+        user.setMyPoint(myPoint);
         return ResultUtils.success(userRepository.save(user));
     }
 
@@ -67,10 +73,12 @@ public class UserController {
     @PostMapping(value = "/login")
     public Result login(@Valid User user) {
         List<User> listByUserName = userRepository.findByUserName(user.getUserName());
+        System.out.println(listByUserName.size());
         if (listByUserName.size() == 0)
             return ResultUtils.error(ResultEnum.ACCOUNT_NO_EXIST);
 
         List<User> list = userRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
+        System.out.println(list.size());
         if (list.size() == 0) {
             return ResultUtils.error(ResultEnum.PASSWORD_ERROR);
         }
