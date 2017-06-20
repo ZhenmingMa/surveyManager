@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,45 +14,31 @@ import java.util.List;
 @Entity
 public class User {
 
-
     @Id
-    @GeneratedValue
-    private Integer id;
-    private String uId;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    private String id;
     private String token;
-    @NotNull(message = "用户名不能为空")
-    @Column(unique = true)
-    private String userName;
-    private String password; //
-    private String nicName; //昵称
-    private String phone; //电话号码
-
-    @OneToOne
-    private MyBonus myBonus; //奖金
-
-    @OneToOne
-    private MyPoint myPoint;//积分
-
-    @OneToMany
-    private List<Address> address; //收货地址
+    @NotNull(message = "账号不能为空")
+    private long phone;
+    @NotNull(message = "密码不能为空")
+    private String password;
+    private Date time;
+    private Date birthday;
+    private String location;
+    private String occupation;
+    private String income;
+    private String hobby;
 
     public User() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getuId() {
-        return uId;
-    }
-
-    public void setuId(String uId) {
-        this.uId = uId;
     }
 
     public String getToken() {
@@ -62,12 +49,12 @@ public class User {
         this.token = token;
     }
 
-    public String getUserName() {
-        return userName;
+    public long getPhone() {
+        return phone;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPhone(long phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
@@ -78,59 +65,67 @@ public class User {
         this.password = password;
     }
 
-    public String getNicName() {
-        return nicName;
+    public Date getTime() {
+        return time;
     }
 
-    public void setNicName(String nicName) {
-        this.nicName = nicName;
+    public void setTime(Date time) {
+        this.time = time;
     }
 
-    public String getPhone() {
-        return phone;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
-    public MyBonus getMyBonus() {
-        return myBonus;
+    public String getLocation() {
+        return location;
     }
 
-    public void setMyBonus(MyBonus myBonus) {
-        this.myBonus = myBonus;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public MyPoint getMyPoint() {
-        return myPoint;
+    public String getOccupation() {
+        return occupation;
     }
 
-    public void setMyPoint(MyPoint myPoint) {
-        this.myPoint = myPoint;
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
     }
 
-    public List<Address> getAddress() {
-        return address;
+    public String getIncome() {
+        return income;
     }
 
-    public void setAddress(List<Address> address) {
-        this.address = address;
+    public void setIncome(String income) {
+        this.income = income;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", uId='" + uId + '\'' +
+                "id='" + id + '\'' +
                 ", token='" + token + '\'' +
-                ", userName='" + userName + '\'' +
+                ", phone=" + phone +
                 ", password='" + password + '\'' +
-                ", nicName='" + nicName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", myBonus=" + myBonus +
-                ", myPoint=" + myPoint +
-                ", address=" + address +
+                ", time=" + time +
+                ", birthday=" + birthday +
+                ", location='" + location + '\'' +
+                ", occupation='" + occupation + '\'' +
+                ", income='" + income + '\'' +
+                ", hobby='" + hobby + '\'' +
                 '}';
     }
 }

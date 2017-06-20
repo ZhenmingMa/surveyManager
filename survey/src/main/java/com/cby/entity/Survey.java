@@ -13,11 +13,11 @@ import java.util.List;
 public class Survey {
     @Id
     @GeneratedValue
-    private Integer sId;  //问卷id
-    private String tags; //问卷类型
-    private String date;        //发布日期
-    private String price;      //问卷奖励
-    private Integer count;      //数量
+    private Integer sId;         //问卷id
+    private String tags;         //问卷类型
+    private String date;         //发布日期
+    private String price;        //问卷奖励
+    private Integer count;       //数量
     @OneToMany
     private List<Question> questions; //问题列表
     @OneToOne

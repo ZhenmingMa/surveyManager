@@ -1,6 +1,5 @@
 package com.cby.aspect;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +9,6 @@ import com.cby.enums.ResultEnum;
 import com.cby.exception.SurveyException;
 import com.cby.service.UserService;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;

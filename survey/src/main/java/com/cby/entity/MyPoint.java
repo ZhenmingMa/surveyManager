@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * 我的积分
@@ -14,17 +15,13 @@ public class MyPoint {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(name = "dayPoint",columnDefinition = "varchar(255) not null default '0' ")
-    private String dayPoint; //每日登录积分
-    @Column(name = "sharePoint",columnDefinition = "varchar(255) not null default '0' ")
-    private String sharePoint;//分享积分
+    private String userId;
+    private long count;
+    private long login;
+    private long share;
+    private Date time;
 
     public MyPoint() {
-    }
-
-    public MyPoint(String dayPoint, String sharePoint) {
-        this.dayPoint = dayPoint;
-        this.sharePoint = sharePoint;
     }
 
     public Integer getId() {
@@ -35,19 +32,55 @@ public class MyPoint {
         this.id = id;
     }
 
-    public String getDayPoint() {
-        return dayPoint;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setDayPoint(String dayPoint) {
-        this.dayPoint = dayPoint;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getSharePoint() {
-        return sharePoint;
+    public long getCount() {
+        return count;
     }
 
-    public void setSharePoint(String sharePoint) {
-        this.sharePoint = sharePoint;
+    public void setCount(long count) {
+        this.count = count;
+    }
+
+    public long getLogin() {
+        return login;
+    }
+
+    public void setLogin(long login) {
+        this.login = login;
+    }
+
+    public long getShare() {
+        return share;
+    }
+
+    public void setShare(long share) {
+        this.share = share;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "MyPoint{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", count=" + count +
+                ", login=" + login +
+                ", share=" + share +
+                ", time=" + time +
+                '}';
     }
 }

@@ -14,8 +14,9 @@ public class Address {
     @Id
     @GeneratedValue
     private Integer id;
+    private String userId;
     private String name;
-    private String phone;
+    private Long phone;
     private String province;
     private String city;
     private String detailAddress;
@@ -32,6 +33,14 @@ public class Address {
         this.id = id;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public String getName() {
         return name;
     }
@@ -40,11 +49,11 @@ public class Address {
         this.name = name;
     }
 
-    public String getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

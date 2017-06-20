@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * 我的奖金
@@ -16,18 +17,15 @@ public class MyBonus {
     @Id
     @GeneratedValue
     private Integer id;
-
-    @Column(name = "answerBonus",columnDefinition = "varchar(255) not null default '0' ")
-    private String answerBonus; //问卷奖励
-    @Column(name = "inviteBonus",columnDefinition = "varchar(255) not null default '0' ")
-    private String inviteBonus; //邀请奖励
+    private String userId;
+    private double count;
+    private double answer;
+    private double invite;
+    private double transferred;
+    private double auditing;
+    private Date time;
 
     public MyBonus() {
-    }
-
-    public MyBonus(String answerBonus, String inviteBonus) {
-        this.answerBonus = answerBonus;
-        this.inviteBonus = inviteBonus;
     }
 
     public Integer getId() {
@@ -38,19 +36,59 @@ public class MyBonus {
         this.id = id;
     }
 
-    public String getAnswerBonus() {
-        return answerBonus;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setAnswerBonus(String answerBonus) {
-        this.answerBonus = answerBonus;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getInviteBonus() {
-        return inviteBonus;
+    public double getCount() {
+        return count;
     }
 
-    public void setInviteBonus(String inviteBonus) {
-        this.inviteBonus = inviteBonus;
+    public void setCount(double count) {
+        this.count = count;
+    }
+
+    public double getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(double answer) {
+        this.answer = answer;
+    }
+
+    public double getInvite() {
+        return invite;
+    }
+
+    public void setInvite(double invite) {
+        this.invite = invite;
+    }
+
+    public double getTransferred() {
+        return transferred;
+    }
+
+    public void setTransferred(double transferred) {
+        this.transferred = transferred;
+    }
+
+    public double getAuditing() {
+        return auditing;
+    }
+
+    public void setAuditing(double auditing) {
+        this.auditing = auditing;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }
