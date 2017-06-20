@@ -1,18 +1,17 @@
 package com.cby.service;
 
 import com.cby.entity.*;
-import com.cby.repository.AnswerDemandRepo;
+import com.cby.repository.OptionRepository;
 import com.cby.repository.QuestionRepository;
-import com.cby.repository.SaveUserSurveyRepo;
+import com.cby.repository.SurveyRecordRepo;
 import com.cby.repository.SurveyRepository;
 import com.cby.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.transaction.Transactional;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Ma on 2017/6/15.
@@ -24,27 +23,51 @@ public class SurveyService {
     @Autowired
     private QuestionRepository questionRepository;
     @Autowired
-    private AnswerDemandRepo answerDemandRepo;
+    private OptionRepository optionRepository;
     @Autowired
-    private SaveUserSurveyRepo saveUserSurveyRepo;
-
+    private SurveyRecordRepo surveyRecordRepo;
     /**
-     * 添加问卷
+     * 创建问卷
      *
      * @param survey
      * @return
      */
     public Result addSurvey(Survey survey) {
-        for (Question question : survey.getQuestions()) {
-            questionRepository.save(question);
-        }
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String time = sdf.format(date);
-        survey.setDate(time);
-        answerDemandRepo.save(survey.getAnswerDemand());
         return ResultUtils.success(surveyRepository.save(survey));
     }
+    /**
+     * 添加问题
+     * @param question
+     * @return
+     */
+    public Result addQuestion(Question question) {
+        return ResultUtils.success(questionRepository.save(question));
+    }
+    /**
+     * 添加问题选项
+     */
+    public Result addOption(QuestionOption questionOption){
+        return  ResultUtils.success(optionRepository.save(questionOption));
+    }
+
+    /**
+     * 得到问卷题目
+     * @param surveyId
+     * @return
+     */
+    public Result getQuestion(Integer surveyId){
+        List<ResultQuestion> list_result = new ArrayList<>();
+        List<Question> list = questionRepository.findBySurveyId(surveyId);
+        for (Question question:list){
+            ResultQuestion resultQuestion = new ResultQuestion();
+            resultQuestion.setQuestion(question);
+            resultQuestion.setQuestionOptions(optionRepository.findByQuestionId(question.getId()));
+            list_result.add(resultQuestion);
+        }
+        return ResultUtils.success(list_result);
+    }
+
+
 
     /**
      * 删除问卷
@@ -53,9 +76,15 @@ public class SurveyService {
      * @return
      */
     public Result deleteSurvey(Integer id) {
-        Survey survey = surveyRepository.findOne(id);
-        survey.setAnswerDemand(null);
         surveyRepository.delete(id);
+        List<Question> list = questionRepository.findBySurveyId(id);
+        for (Question question:list){
+            questionRepository.delete(question);
+              List<QuestionOption> list1=optionRepository.findByQuestionId(question.getId());
+              for (QuestionOption questionOption:list1)
+                  optionRepository.delete(questionOption);
+        }
+
         return ResultUtils.success();
     }
 
@@ -75,10 +104,7 @@ public class SurveyService {
      * @return
      */
     public Result updateSurvey(Survey survey) {
-        for (Question question : survey.getQuestions()) {
-            questionRepository.save(question);
-        }
-        answerDemandRepo.save(survey.getAnswerDemand());
+
         return ResultUtils.success(surveyRepository.save(survey));
     }
 
@@ -89,23 +115,18 @@ public class SurveyService {
      */
     public Result getSurveyBySId(Integer id) {
 
-        return ResultUtils.success(surveyRepository.findBySId(id));
+        return ResultUtils.success();
     }
 
     /**
      * 提交问卷
-     * @param saveUserSurvey
+     * @param
      * @return
      */
-    public Result commitSurvey(SaveUserSurvey saveUserSurvey) {
-        System.out.println(saveUserSurvey.toString());
-        for (Question question : saveUserSurvey.getSurvey().getQuestions()) {
-            questionRepository.saveAndFlush(question);
-        }
-        answerDemandRepo.saveAndFlush(saveUserSurvey.getSurvey().getAnswerDemand());
-        surveyRepository.saveAndFlush(saveUserSurvey.getSurvey());
-
-        return ResultUtils.success(saveUserSurveyRepo.save(saveUserSurvey));
+    public Result commitSurvey(ResultSurveyRecord resultSurveyRecord) {
+        for (SurveyRecord surveyRecord:resultSurveyRecord.getList())
+            surveyRecordRepo.save(surveyRecord);
+       return ResultUtils.success(resultSurveyRecord);
     }
 
     /**
@@ -114,7 +135,7 @@ public class SurveyService {
      * @return
      */
     public Result getUserSurvey(String id) {
-        return ResultUtils.success(saveUserSurveyRepo.findByUId(id));
+        return null;
     }
 
 

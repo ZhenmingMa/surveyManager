@@ -13,72 +13,106 @@ import java.util.List;
 public class Survey {
     @Id
     @GeneratedValue
-    private Integer sId;         //问卷id
-    private String tags;         //问卷类型
-    private String date;         //发布日期
-    private String price;        //问卷奖励
-    private Integer count;       //数量
-    @OneToMany
-    private List<Question> questions; //问题列表
-    @OneToOne
-    private AnswerDemand answerDemand;      //要求
+    private Integer id;
+    private String name;    //名字
+    private double bonus;   //奖金
+    private Byte sex;
+    private String age;
+    private String city;
+    private Byte recent;  //最近是否参与过此类调研
+    private int questions; //问题数量
+    private int count;     //剩余席位
+    private Date createTime; //创建时间
+    private Date time;     //更新时间
 
     public Survey() {
     }
 
-    public Integer getsId() {
-        return sId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setsId(Integer sId) {
-        this.sId = sId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getTags() {
-        return tags;
+    public String getName() {
+        return name;
     }
 
-    public void setTags(String tags) {
-        this.tags = tags;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<Question> getQuestions() {
+    public double getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(double bonus) {
+        this.bonus = bonus;
+    }
+
+    public Byte getSex() {
+        return sex;
+    }
+
+    public void setSex(Byte sex) {
+        this.sex = sex;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Byte getRecent() {
+        return recent;
+    }
+
+    public void setRecent(Byte recent) {
+        this.recent = recent;
+    }
+
+    public int getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<Question> questions) {
+    public void setQuestions(int questions) {
         this.questions = questions;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public Integer getCount() {
+    public int getCount() {
         return count;
     }
 
-    public void setCount(Integer count) {
+    public void setCount(int count) {
         this.count = count;
     }
 
-    public AnswerDemand getAnswerDemand() {
-        return answerDemand;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setAnswerDemand(AnswerDemand answerDemand) {
-        this.answerDemand = answerDemand;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }
