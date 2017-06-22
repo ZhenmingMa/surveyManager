@@ -1,3 +1,4 @@
+E:\github\surveyManager\survey\src\main\java\com\cby\entity\QuestionOption.java
 E:\github\surveyManager\survey\src\main\java\com\cby\repository\AddressRepository.java
 E:\github\surveyManager\survey\src\main\java\com\cby\repository\UserRepository.java
 E:\github\surveyManager\survey\src\main\java\com\cby\controller\ShopController.java
@@ -6,11 +7,11 @@ E:\github\surveyManager\survey\src\main\java\com\cby\entity\AnswerDemand.java
 E:\github\surveyManager\survey\src\main\java\com\cby\enums\ResultEnum.java
 E:\github\surveyManager\survey\src\main\java\com\cby\service\UserService.java
 E:\github\surveyManager\survey\src\main\java\com\cby\entity\User.java
-E:\github\surveyManager\survey\src\main\java\com\cby\repository\AnswerDemandRepo.java
 E:\github\surveyManager\survey\src\main\java\com\cby\entity\Goods.java
-E:\github\surveyManager\survey\src\main\java\com\cby\entity\SaveUserSurvey.java
-E:\github\surveyManager\survey\src\main\java\com\cby\repository\SaveUserSurveyRepo.java
+E:\github\surveyManager\survey\src\main\java\com\cby\entity\SurveyRecord.java
+E:\github\surveyManager\survey\src\main\java\com\cby\repository\SurveyRecordRepo.java
 E:\github\surveyManager\survey\src\main\java\com\cby\exception\SurveyException.java
+E:\github\surveyManager\survey\src\main\java\com\cby\entity\ResultSurveyRecord.java
 E:\github\surveyManager\survey\src\main\java\com\cby\service\AddressService.java
 E:\github\surveyManager\survey\src\main\java\com\cby\repository\GoodsRepository.java
 E:\github\surveyManager\survey\src\main\java\com\cby\repository\QuestionRepository.java
@@ -24,11 +25,13 @@ E:\github\surveyManager\survey\src\main\java\com\cby\utils\ResultUtils.java
 E:\github\surveyManager\survey\src\main\java\com\cby\controller\AddressController.java
 E:\github\surveyManager\survey\src\main\java\com\cby\repository\MyBonusRepository.java
 E:\github\surveyManager\survey\src\main\java\com\cby\entity\VisitRecord.java
+E:\github\surveyManager\survey\src\main\java\com\cby\entity\ResultQuestion.java
 E:\github\surveyManager\survey\src\main\java\com\cby\utils\Numbers.java
 E:\github\surveyManager\survey\src\main\java\com\cby\entity\MyBonus.java
 E:\github\surveyManager\survey\src\main\java\com\cby\repository\SurveyRepository.java
 E:\github\surveyManager\survey\src\main\java\com\cby\entity\Question.java
 E:\github\surveyManager\survey\src\main\java\com\cby\utils\UUIDUtils.java
+E:\github\surveyManager\survey\src\main\java\com\cby\repository\OptionRepository.java
 E:\github\surveyManager\survey\src\main\java\com\cby\utils\SystemManger.java
 E:\github\surveyManager\survey\src\main\java\com\cby\controller\VisitRecordController.java
 E:\github\surveyManager\survey\src\main\java\com\cby\controller\UserController.java
