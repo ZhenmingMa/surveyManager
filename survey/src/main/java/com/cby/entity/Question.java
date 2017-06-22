@@ -13,21 +13,27 @@ import javax.persistence.Id;
 public class Question {
     @Id
     @GeneratedValue
-    private Integer qId;
-    private Integer type;
-    private String title;
-    private String content;
-    private String answer;
-
+    private Integer id;
+    private Integer surveyId; //调查表ID
+    private Integer type;  //问题类型
+    private String content; //问题内容
     public Question() {
     }
 
-    public Integer getqId() {
-        return qId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setqId(Integer qId) {
-        this.qId = qId;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getSurveyId() {
+        return surveyId;
+    }
+
+    public void setSurveyId(Integer surveyId) {
+        this.surveyId = surveyId;
     }
 
     public Integer getType() {
@@ -38,27 +44,11 @@ public class Question {
         this.type = type;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
     }
 }

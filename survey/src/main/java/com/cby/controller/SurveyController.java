@@ -1,18 +1,9 @@
 package com.cby.controller;
 
 import com.cby.entity.*;
-import com.cby.repository.AnswerDemandRepo;
-import com.cby.repository.QuestionRepository;
-import com.cby.repository.SurveyRepository;
 import com.cby.service.SurveyService;
-import com.cby.utils.ResultUtils;
-import com.google.gson.Gson;
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Ma on 2017/6/13.
@@ -24,15 +15,42 @@ public class SurveyController {
 
 
     /**
-     * 添加问卷
+     * 创建问卷
      *
      * @param survey
      * @return
      */
     @PostMapping(value = "/addSurvey")
-    public Result addSurvey(@RequestBody Survey survey) {
+    public Result addSurvey(Survey survey) {
         return surveyService.addSurvey(survey);
     }
+
+    /**
+     * 添加问题
+     */
+    @PostMapping(value = "/addQuestion")
+    public Result addQuestion(Question question){
+        return surveyService.addQuestion(question);
+    }
+    /**
+     * 添加问题选项
+     */
+    @PostMapping(value = "/addOption")
+    public Result addOption(QuestionOption questionOption){
+        return  surveyService.addOption(questionOption);
+    }
+
+    /**
+     * 得到问卷题目
+     * @param surveyId
+     * @return
+     */
+    @GetMapping(value = "/getQuestion")
+    public Result getQuestion(Integer surveyId){
+        return surveyService.getQuestion(surveyId);
+    }
+
+
 
     /**
      * 删除问卷
@@ -41,7 +59,7 @@ public class SurveyController {
      * @return
      */
     @PostMapping(value = "/deleteSurvey")
-    public Result deleteSurvey(@RequestParam("sId") Integer id) {
+    public Result deleteSurvey(@RequestParam("surveyId") Integer id) {
         return surveyService.deleteSurvey(id);
     }
 
@@ -77,12 +95,12 @@ public class SurveyController {
 
     /**
      * 提交问卷
-     * @param saveUserSurvey
+     * @param
      * @return
      */
     @PostMapping(value = "/commitSurvey")
-    public Result commitSurvey(@RequestBody SaveUserSurvey saveUserSurvey) {
-        return surveyService.commitSurvey(saveUserSurvey);
+    public Result commitSurvey(ResultSurveyRecord resultSurveyRecord) {
+        return surveyService.commitSurvey(resultSurveyRecord);
     }
 
     /**

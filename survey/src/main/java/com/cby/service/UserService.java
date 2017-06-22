@@ -360,6 +360,6 @@ public class UserService {
         if (user != null)
             return ResultUtils.success(userRepository.findOne(user.getId()));
         else
-            return ResultUtils.success();
+            return ResultUtils.error(ResultEnum.NOPERMISSION);
     }
 }
