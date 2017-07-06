@@ -23,9 +23,11 @@ public class Goods {
 
     private String time;//开放购买时间
 
-    private String number;//商品数量
+    private Integer number;//商品数量
 
     private Integer price;//商品价格
+
+
 
     public Integer getPrice() {
         return price;
@@ -67,11 +69,11 @@ public class Goods {
         this.time = time;
     }
 
-    public String getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 

@@ -11,7 +11,9 @@ public enum ResultEnum {
     ACCOUNT_NO_EXIST(102,"账号不存在"),
     ACCOUNT_HAS_EXIST(103,"账号已存在"),
     PASSWORD_ERROR(104,"密码错误"),
-    ADDRESS_ID_NO_EXIST(101,"地址id不存在"),
+    ADDRESS_ID_NO_EXIST(105,"地址id不存在"),
+    INSUFFICIENT_BALANCE(106,"余额不足"),
+    INSUFFICIENT_COUNT(106,"库存不足")
     ;
 
     private Integer code;

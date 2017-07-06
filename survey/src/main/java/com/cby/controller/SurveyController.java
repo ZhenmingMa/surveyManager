@@ -1,9 +1,24 @@
 package com.cby.controller;
 
+import com.cby.annotation.UserAccess;
 import com.cby.entity.*;
+import com.cby.repository.SurveyRecordRepo;
 import com.cby.service.SurveyService;
+import com.cby.utils.ResultUtils;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.OneToOne;
+import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Ma on 2017/6/13.
@@ -29,27 +44,28 @@ public class SurveyController {
      * 添加问题
      */
     @PostMapping(value = "/addQuestion")
-    public Result addQuestion(Question question){
+    public Result addQuestion(Question question) {
         return surveyService.addQuestion(question);
     }
+
     /**
      * 添加问题选项
      */
     @PostMapping(value = "/addOption")
-    public Result addOption(QuestionOption questionOption){
-        return  surveyService.addOption(questionOption);
+    public Result addOption(QuestionOption questionOption) {
+        return surveyService.addOption(questionOption);
     }
 
     /**
      * 得到问卷题目
+     *
      * @param surveyId
      * @return
      */
     @GetMapping(value = "/getQuestion")
-    public Result getQuestion(Integer surveyId){
+    public Result getQuestion(Integer surveyId) {
         return surveyService.getQuestion(surveyId);
     }
-
 
 
     /**
@@ -75,6 +91,7 @@ public class SurveyController {
 
     /**
      * 更新问卷
+     *
      * @param survey
      * @return
      */
@@ -84,7 +101,8 @@ public class SurveyController {
     }
 
     /**
-     *通过问卷id查询所有的结果
+     * 通过问卷id查询所有的结果
+     *
      * @param id
      * @return
      */
@@ -95,22 +113,41 @@ public class SurveyController {
 
     /**
      * 提交问卷
+     *
      * @param
      * @return
      */
+    @UserAccess
     @PostMapping(value = "/commitSurvey")
-    public Result commitSurvey(ResultSurveyRecord resultSurveyRecord) {
-        return surveyService.commitSurvey(resultSurveyRecord);
+    public Result commitSurvey(@RequestParam(value = "list")String  object ,
+                               @RequestParam(value = "token")String token
+                               ) {
+        return surveyService.commitSurvey(object,token);
     }
+
 
     /**
      * 得到当前用户已经完成的调研
-     * @param id
+     *
+     * @param
      * @return
      */
+    @UserAccess
     @GetMapping(value = "/getUserSurvey")
-    public Result getUserSurvey(@RequestParam("uId") String id) {
-        return surveyService.getUserSurvey(id);
+    public Result getUserSurvey(@RequestParam("token") String token) {
+        return surveyService.getUserSurvey(token);
     }
+
+    /**
+     * 得到用户未完成的调研
+     * @param token
+     * @return
+     */
+    @UserAccess
+    @GetMapping(value = "/getgetUserUnSurvey")
+    public Result getUserUnSurvey(String token){
+        return surveyService.getUserUnSurvey(token);
+    }
+
 
 }

@@ -3,6 +3,7 @@ package com.cby.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * 问卷记录表
@@ -16,8 +17,18 @@ public class SurveyRecord {
     private String userId;
     private Integer surveyId;
     private Integer optionId;
+    private Integer questionId;
     private boolean isChecked;
     private String custom;
+    private Date time;
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public SurveyRecord() {
     }
@@ -68,5 +79,26 @@ public class SurveyRecord {
 
     public void setCustom(String custom) {
         this.custom = custom;
+    }
+
+    public Integer getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
+    }
+
+    @Override
+    public String toString() {
+        return "SurveyRecord{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", surveyId=" + surveyId +
+                ", optionId=" + optionId +
+                ", isChecked=" + isChecked +
+                ", custom='" + custom + '\'' +
+                ", time=" + time +
+                '}';
     }
 }

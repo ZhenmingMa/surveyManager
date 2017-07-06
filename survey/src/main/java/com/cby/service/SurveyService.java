@@ -1,17 +1,15 @@
 package com.cby.service;
 
 import com.cby.entity.*;
-import com.cby.repository.OptionRepository;
-import com.cby.repository.QuestionRepository;
-import com.cby.repository.SurveyRecordRepo;
-import com.cby.repository.SurveyRepository;
+import com.cby.repository.*;
 import com.cby.utils.ResultUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by Ma on 2017/6/15.
@@ -26,6 +24,8 @@ public class SurveyService {
     private OptionRepository optionRepository;
     @Autowired
     private SurveyRecordRepo surveyRecordRepo;
+    @Autowired
+    private MyBonusRepository myBonusRepository;
     /**
      * 创建问卷
      *
@@ -88,6 +88,7 @@ public class SurveyService {
         return ResultUtils.success();
     }
 
+
     /**
      * 得到所有问卷
      *
@@ -123,18 +124,90 @@ public class SurveyService {
      * @param
      * @return
      */
-    public Result commitSurvey(ResultSurveyRecord resultSurveyRecord) {
-        for (SurveyRecord surveyRecord:resultSurveyRecord.getList())
-            surveyRecordRepo.save(surveyRecord);
-       return ResultUtils.success(resultSurveyRecord);
+    public Result commitSurvey(String object,String token) {
+        User user =UserService.loginUserMap.get(token);
+        Survey survey = null;
+        try {
+            JSONArray jsonArray = new JSONArray(object);
+            Date date = new Date();
+            Integer id = null;
+            for (int i = 0; i< jsonArray.length();i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                SurveyRecord surveyRecord = new SurveyRecord();
+                surveyRecord.setChecked(jsonObject.getBoolean("isChecked"));
+                surveyRecord.setSurveyId(jsonObject.getInt("surveyId"));
+                surveyRecord.setCustom(jsonObject.optString("custom"));
+                surveyRecord.setOptionId(jsonObject.getInt("optionId"));
+                surveyRecord.setQuestionId(jsonObject.getInt("questionId"));
+                surveyRecord.setUserId(user.getId());
+                surveyRecord.setTime(date);
+                if (i==0)
+                    id = surveyRecord.getSurveyId();
+                surveyRecordRepo.save(surveyRecord);
+            }
+            survey = surveyRepository.findOne(id);
+            MyBonus myBonus = myBonusRepository.findByUserId(user.getId());
+            myBonus.setAnswer(myBonus.getAnswer()+survey.getBonus());
+            myBonus.setCount(myBonus.getCount()+survey.getBonus());
+            myBonusRepository.save(myBonus);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+       return ResultUtils.success(survey.getBonus());
     }
 
     /**
      * 得到当前用户已经完成的调研
-     * @param id
+     * @param
      * @return
      */
-    public Result getUserSurvey(String id) {
+    public Result getUserSurvey(String token) {
+        User user =UserService.loginUserMap.get(token);
+        List<SurveyRecord> list = surveyRecordRepo.findByUserId(user.getId());
+        Set set = new HashSet();
+        for (SurveyRecord surveyRecord :list){
+            set.add(surveyRecord.getSurveyId());
+        }
+        List<Survey> list_survey = new ArrayList<>();
+        for (Object integer:set){
+           list_survey.add( surveyRepository.findOne((Integer) integer));
+        }
+        return ResultUtils.success(list_survey);
+    }
+
+
+
+
+
+
+
+
+
+
+    //得到用户未完成的调研
+    public Result getUserUnSurvey(String token){
+
+        User user = UserService.loginUserMap.get(token);
+        List<SurveyRecord> list =  surveyRecordRepo.findByUserId(user.getId());
+        Set set = new HashSet();
+        for (SurveyRecord s:list){
+           set.add(s.getSurveyId());
+        }
+        //得到每一个问卷的问题数量
+        for (Object surveyId:set){
+            List<Question> questions = questionRepository.findBySurveyId((Integer) surveyId);
+        }
+        //得到已提交答案的问卷数量
+        for (SurveyRecord s:list){
+            QuestionOption questionOption = optionRepository.findOne(s.getOptionId());
+            questionOption.getQuestionId();
+        }
+
+
+
+        for (SurveyRecord surveyRecord:list){
+
+        }
         return null;
     }
 

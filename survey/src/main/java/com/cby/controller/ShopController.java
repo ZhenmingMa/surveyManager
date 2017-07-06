@@ -1,12 +1,19 @@
 package com.cby.controller;
 
+import com.cby.annotation.UserAccess;
 import com.cby.entity.Goods;
+import com.cby.entity.MyPoint;
 import com.cby.entity.Result;
+import com.cby.entity.User;
 import com.cby.repository.GoodsRepository;
+import com.cby.repository.MyPointRepository;
+import com.cby.service.ShopService;
+import com.cby.service.UserService;
 import com.cby.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Id;
 import javax.validation.Valid;
 
 /**
@@ -16,7 +23,7 @@ import javax.validation.Valid;
 @RequestMapping(value = "/shop")
 public class ShopController {
     @Autowired
-    private GoodsRepository goodsRepository;
+    private ShopService shopService;
 
     /**
      * 获取所有的商品信息
@@ -24,7 +31,7 @@ public class ShopController {
      */
     @GetMapping(value = "/getAllGoods")
     public Result getAllGoods(){
-        return ResultUtils.success(goodsRepository.findAll());
+        return shopService.getAllGoods();
     }
 
     /**
@@ -34,7 +41,7 @@ public class ShopController {
      */
     @PostMapping(value = "addGoods")
     public Result addGoods(@Valid Goods goods){
-        return ResultUtils.success(goodsRepository.save(goods));
+        return shopService.addGoods(goods);
     }
 
     /**
@@ -43,7 +50,7 @@ public class ShopController {
      */
     @PutMapping(value = "updateGoods")
     public Result updateGoodsById(Goods goods){
-        return ResultUtils.success(goodsRepository.save(goods));
+        return shopService.updateGoodsById(goods);
     }
     /**
      * 通过id删除商品
@@ -52,7 +59,41 @@ public class ShopController {
      */
     @DeleteMapping(value = "/deleteGoodsById")
     public Result deleteGoodsById(@RequestParam("id")Integer id){
-        goodsRepository.delete(id);
-       return ResultUtils.success();
+       return shopService.deleteGoodsById(id);
     }
+
+    /**
+     * 兑换
+     * @param token
+     * @param id
+     * @return
+     */
+    @UserAccess
+    @PostMapping(value = "exchangeGoods")
+    public Result exchangeGoods(String token,Integer id){
+        return shopService.exchangeGoods(token,id);
+    }
+
+    /**
+     *获取用户兑换记录
+     * @param token
+     * @return
+     */
+    @UserAccess
+    @GetMapping(value = "getExchangeRecord")
+    public Result getExchangeRecord(String token){
+        return shopService.getExchangeRecord(token);
+    }
+
+    /**
+     * 删除兑换记录
+     * @param id
+     * @return
+     */
+    @UserAccess
+    @PostMapping(value = "deleteExchangeRecord")
+    public Result deleteExchangeRecord(Integer id){
+        return shopService.deleteExchangeRecord(id);
+    }
+
 }

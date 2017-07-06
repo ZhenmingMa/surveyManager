@@ -58,7 +58,12 @@
 			<artifactId>spring-boot-autoconfigure</artifactId>
 			<version>1.4.6.RELEASE</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.vaadin.external.google</groupId>
+            <artifactId>android-json</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
