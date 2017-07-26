@@ -37,7 +37,7 @@ public class WithDrawService {
         withDraw.setUserId(user.getId());
         withDrawRepository.save(withDraw);
         myBonus.setCount(myBonus.getCount()-count);
-        myBonus.setAuditing(count);
+        myBonus.setAuditing(myBonus.getAuditing()+count);
         return ResultUtils.success(myBonusRepository.save(myBonus));
     }
 }

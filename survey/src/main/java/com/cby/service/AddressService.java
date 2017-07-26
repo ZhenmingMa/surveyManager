@@ -22,44 +22,68 @@ public class AddressService {
 
     /**
      * 添加地址
+     *
      * @param token
      * @param address
      * @return
      */
 
-    public Result addAddress(String token, Address address){
+    public Result addAddress(String token, Address address) {
         User user = UserService.loginUserMap.get(token);
         address.setUserId(user.getId());
+        System.out.println(address.getDistrict());
         List<Address> list = addressRepository.findByUserId(user.getId());
-        if (list.size() == 0){
-            address.setCurrent(true);
-        }else {
-            address.setCurrent(false);
+
+        if (address.isCurrent() == true) {
+            for (Address a : list) {
+                if (a.isCurrent() == true) {
+                    a.setCurrent(false);
+                    addressRepository.save(a);
+                }
+            }
         }
+//        if (list.size() == 0){
+//            address.setCurrent(true);
+//        }else {
+//            address.setCurrent(false);
+//        }
+
+
         return ResultUtils.success(addressRepository.save(address));
     }
 
     /**
      * 更新地址
+     *
      * @param token
      * @param address
      * @return
      */
-    public Result updateAddress(String token,Address address){
+    public Result updateAddress(String token, Address address) {
         if (address.getId() == null)
             return ResultUtils.error(ResultEnum.ADDRESS_NO_ID);
         User user = UserService.loginUserMap.get(token);
         address.setUserId(user.getId());
+        if (address.isCurrent()) {
+            List<Address> list = addressRepository.findByUserId(user.getId());
+            for (Address address1 : list) {
+                if (address1.isCurrent()) {
+                    address1.setCurrent(false);
+                    addressRepository.save(address1);
+                }
+            }
+        }
         return ResultUtils.success(addressRepository.save(address));
     }
 
     /**
      * 删除地址
+     *
      * @param id
      * @return
      */
-    public Result deleteAddress(Integer id){
-        if (id==null)
+    public Result deleteAddress(Integer id) {
+        if (id == null)
             return ResultUtils.error(ResultEnum.ADDRESS_NO_ID);
         addressRepository.delete(id);
         return ResultUtils.success();
@@ -67,17 +91,19 @@ public class AddressService {
 
     /**
      * 获取所有地址
+     *
      * @param token
      * @return
      */
-    public Result getAllAddress(String token){
+    public Result getAllAddress(String token) {
         User user = UserService.loginUserMap.get(token);
         List<Address> list = addressRepository.findByUserId(user.getId());
-         return ResultUtils.success(list);
+        return ResultUtils.success(list);
     }
 
     /**
      * 设置默认收货地址
+     *
      * @param token
      * @param id
      * @return
@@ -85,7 +111,7 @@ public class AddressService {
     public Result setDefaultAddress(String token, Integer id) {
         User user = UserService.loginUserMap.get(token);
         List<Address> list = addressRepository.findByUserId(user.getId());
-        for (Address address : list){
+        for (Address address : list) {
             if (address.getId() == id)
                 address.setCurrent(true);
             else

@@ -7,6 +7,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/annotation/UserAccess.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/aspect/PermissionAspect.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/controller/AddressController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/controller/ApplicationController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/controller/SurveyController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/controller/WithDrawController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/entity/Address.java" />
@@ -23,6 +24,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/entity/SurveyRecord.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/entity/Withdraw.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/repository/AddressRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/repository/ApplicationRepository.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/repository/ExchangeRepository.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/repository/MyBonusRepository.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/repository/MyPointRepository.java" />
@@ -32,6 +34,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/repository/SurveyRepository.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/repository/WithDrawRepository.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/service/AddressService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/service/ApplicationService.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/service/ShopService.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/service/SurveyService.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cby/service/WithDrawService.java" />
@@ -70,7 +73,42 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/ApplicationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/ApplicationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddressService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/AddressService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="31" column="56" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -100,10 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/cby/SurveyApplication.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/AnswerDemand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/UserSurvey.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/repository/SaveUserSurvey.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/repository/SaveUserSurveyRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/SaveUserSurvey.java" />
@@ -116,7 +150,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/cby/repository/MyBonusRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/utils/SystemManger.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/Address.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/repository/AddressRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/controller/AddressController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/Survey.java" />
@@ -132,9 +165,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/cby/repository/SurveyRecordRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/repository/SurveyRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/repository/WithDrawRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cby/service/WithDrawService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/controller/WithDrawController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/Goods.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/enums/ResultEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/Withdraw.java" />
@@ -150,7 +181,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/cby/controller/SurveyController.java" />
         <option value="$PROJECT_DIR$/ma.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/controller/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cby/service/WithDrawService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/Address.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cby/annotation/UserAccess.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cby/service/AddressService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cby/repository/ApplicationRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cby/entity/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cby/service/ApplicationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cby/controller/ApplicationController.java" />
       </list>
     </option>
   </component>
@@ -546,9 +584,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -592,8 +630,30 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="survey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="survey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cby" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -620,6 +680,100 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="cby" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="survey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="survey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cby" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="survey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="survey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cby" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aspect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="survey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="survey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cby" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="annotation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1147,7 +1301,21 @@
       <workItem from="1499218199307" duration="14416000" />
       <workItem from="1499252409316" duration="5320000" />
       <workItem from="1499261411539" duration="1522000" />
-      <workItem from="1499302271434" duration="5646000" />
+      <workItem from="1499302271434" duration="12212000" />
+      <workItem from="1499389441992" duration="3663000" />
+      <workItem from="1499647935644" duration="3025000" />
+      <workItem from="1499672187447" duration="65000" />
+      <workItem from="1499752907934" duration="4680000" />
+      <workItem from="1499821681415" duration="1719000" />
+      <workItem from="1499925532913" duration="6101000" />
+      <workItem from="1499997316948" duration="130000" />
+      <workItem from="1499997869537" duration="5369000" />
+      <workItem from="1500361742607" duration="2170000" />
+      <workItem from="1500369813066" duration="1983000" />
+      <workItem from="1500426444988" duration="303000" />
+      <workItem from="1500600502619" duration="7288000" />
+      <workItem from="1501050453271" duration="598000" />
+      <workItem from="1501056294409" duration="1188000" />
     </task>
     <task id="LOCAL-00001" summary="6.2">
       <created>1496381926694</created>
@@ -1160,7 +1328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311158000" />
+    <option name="totallyTimeSpent" value="356006000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1173,6 +1341,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1364" height="726" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1192,10 +1361,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37175325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2792208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2277448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2277448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1208,6 +1377,41 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37381703" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32649842" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="196" y="102" width="1044" height="459" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2792208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2277448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1230,69 +1434,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/repository/SurveyRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/repository/GoodsRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/repository/QuestionRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-738">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/utils/ResultUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="256" column="18" lean-forward="false" selection-start-line="256" selection-start-column="18" selection-end-line="256" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/QuestionOption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/ResultQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/reflect/Type.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/ResultSurveyRecord.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/Date.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1312,7 +1453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90">
           <caret line="2312" column="36" lean-forward="false" selection-start-line="2312" selection-start-column="36" selection-end-line="2312" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1344,38 +1484,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/MyBonus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/WithDrawService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="27" column="68" lean-forward="false" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/WithDrawController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.3.RELEASE/spring-data-commons-1.13.3.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1400,13 +1512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/enums/ResultEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/ResultExchangeRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1418,13 +1523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/ShopController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="96" column="5" lean-forward="false" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1476,49 +1574,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding>
-            <element signature="e#1549#1550#0" expanded="false" />
-            <element signature="e#1582#1583#0" expanded="false" />
-            <element signature="e#1635#1636#0" expanded="false" />
-            <element signature="e#1679#1680#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ma.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/Test.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/SurveyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="105" column="16" lean-forward="false" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="139" column="19" lean-forward="false" selection-start-line="139" selection-start-column="19" selection-end-line="139" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="361" column="12" lean-forward="false" selection-start-line="361" selection-start-column="12" selection-end-line="361" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/SurveyService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding>
-            <element signature="method#updateSurvey#0;class#SurveyService#0" expanded="false" />
-            <element signature="method#commitSurvey#0;class#SurveyService#0" expanded="false" />
-            <element signature="method#getUserSurvey#0;class#SurveyService#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1526,34 +1590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="10" column="56" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/AddressController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
-          <folding>
-            <element signature="e#794#795#0" expanded="false" />
-            <element signature="e#857#858#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/AddressService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/Address.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1561,7 +1597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1569,7 +1604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1578,6 +1612,195 @@
         <state relative-caret-position="320">
           <caret line="46" column="20" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="13" column="46" lean-forward="true" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/MyBonus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/WithDrawService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/WithDrawController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/aspect/HttpAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/enums/ResultEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="65" column="9" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/utils/UUIDUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/annotation/UserAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/aspect/PermissionAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="28" column="46" lean-forward="false" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/repository/ApplicationRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="80" lean-forward="false" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/SurveyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/entity/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#608#609#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#832#833#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/AddressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="74" column="46" lean-forward="true" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+          <folding>
+            <element signature="e#1064#1065#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/AddressService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="31" column="56" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/service/ApplicationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cby/controller/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -19,6 +19,7 @@ public class Address {
     private Long phone;
     private String province;
     private String city;
+    private String district;
     private String detailAddress;
     private boolean isCurrent;
 
@@ -83,6 +84,14 @@ public class Address {
 
     public boolean isCurrent() {
         return isCurrent;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public void setCurrent(boolean current) {
