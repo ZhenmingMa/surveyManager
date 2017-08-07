@@ -3,10 +3,7 @@ package com.cby.service;
 import com.cby.annotation.UserAccess;
 import com.cby.entity.*;
 import com.cby.enums.ResultEnum;
-import com.cby.repository.AddressRepository;
-import com.cby.repository.MyBonusRepository;
-import com.cby.repository.MyPointRepository;
-import com.cby.repository.UserRepository;
+import com.cby.repository.*;
 import com.cby.utils.ResultUtils;
 import com.cby.utils.SystemManger;
 import com.cby.utils.TimeUtils;
@@ -16,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,6 +36,9 @@ public class UserService {
     private MyPointRepository myPointRepository;
     @Autowired
     private MyBonusRepository myBonusRepository;
+    @Autowired
+    private MessageRespository messageRespository;
+
     @PersistenceContext
     private EntityManager manager;
 
@@ -101,33 +102,66 @@ public class UserService {
         return ResultUtils.success(userRepository.save(u));
     }
 
+    public Result loginByPhone(String phone) {
+        List<User> listByPhone = userRepository.findByPhone(Long.parseLong(phone));
+        if (listByPhone.size() == 0)
+            return ResultUtils.error(ResultEnum.ACCOUNT_NO_EXIST);
+
+        else {
+            User u = listByPhone.get(0);
+            String token = tokenMap.get(u.getPhone());
+            if (token == null) {
+                System.out.println("新用户登录");
+            } else {
+                u = loginUserMap.get(token);
+                loginUserMap.remove(token);
+                System.out.println("更新用户登录token");
+            }
+            token = UUIDUtils.id(10);
+            u.setToken(token);
+            loginUserMap.put(token, u);
+            tokenMap.put(u.getPhone(), token);
+            System.out.println("目前有" + tokenMap.size() + "个用户");
+            return ResultUtils.success(userRepository.save(u));
+        }
+    }
 
     /**
      * 更新用户信息
      *
-     * @param bindingResult
+     * @param
      * @return
      */
-    public Result userUpdate(String token, User user,
-                             BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return ResultUtils.error(101, bindingResult.getFieldError().getDefaultMessage());
+//    public Result userUpdate(String token, User user,
+//                             BindingResult bindingResult) {
+//        if (bindingResult.hasErrors()) {
+//            return ResultUtils.error(101, bindingResult.getFieldError().getDefaultMessage());
+//        } else {
+//            User user_map = loginUserMap.get(token);
+//            User user_db = userRepository.findById(user_map.getId());
+//            System.out.printf(user_db.toString());
+//            if (!"null".equals(user.getBirthday())) {
+//                user_db.setBirthday(user.getBirthday());
+//            }
+//            if (!"null".equals(user.getLocation()))
+//                user_db.setLocation(user.getLocation());
+//            if (!"null".equals(user.getOccupation()))
+//                user_db.setOccupation(user.getOccupation());
+//            if (!"null".equals(user.getIncome()))
+//                user_db.setIncome(user.getIncome());
+//            if (!"null".equals(user.getHobby() != null))
+//                user_db.setHobby(user.getHobby());
+//            return ResultUtils.success(userRepository.save(user_db));
+//        }
+//    }
+    public Result forgetPass(String phone, String password) {
+        List<User> list = userRepository.findByPhone(Long.parseLong(phone));
+        if (list == null || list.size() == 0) {
+            return ResultUtils.error(ResultEnum.ACCOUNT_NO_EXIST);
         } else {
-            User user_map = loginUserMap.get(token);
-            User user_db = userRepository.findById(user_map.getId());
-            System.out.printf(user_db.toString());
-            if (!"null".equals(user.getBirthday())) {
-                user_db.setBirthday(user.getBirthday());
-            }
-            if (!"null".equals(user.getLocation()))
-                user_db.setLocation(user.getLocation());
-            if (!"null".equals(user.getOccupation()))
-                user_db.setOccupation(user.getOccupation());
-            if (!"null".equals(user.getIncome()))
-                user_db.setIncome(user.getIncome());
-            if (!"null".equals(user.getHobby() != null))
-                user_db.setHobby(user.getHobby());
-            return ResultUtils.success(userRepository.save(user_db));
+            User user = list.get(0);
+            user.setPassword(password);
+            return ResultUtils.success(userRepository.save(user));
         }
     }
 
@@ -174,7 +208,7 @@ public class UserService {
             myPoint.setTime(new Date());
             myPoint.setLogin(SystemManger.LoginPoint);
             myPoint.setCount(myPoint.getLogin() + myPoint.getShare());
-           return  ResultUtils.success(myPointRepository.save(myPoint));
+            return ResultUtils.success(myPointRepository.save(myPoint));
         }
         myPoint.setShare(myPoint.getShare() + SystemManger.SharePoint);
         myPoint.setTime(new Date());
@@ -184,10 +218,11 @@ public class UserService {
 
     /**
      * 获取我的积分
+     *
      * @param token
      * @return
      */
-    public Result getMyPoint(String token){
+    public Result getMyPoint(String token) {
         User user = loginUserMap.get(token);
         MyPoint myPoint = myPointRepository.findByUserId(user.getId());
         if (myPoint == null) {
@@ -198,6 +233,7 @@ public class UserService {
         }
         return ResultUtils.success(myPoint);
     }
+
     /**
      * 更新问卷回答奖金
      *
@@ -212,17 +248,18 @@ public class UserService {
             myBonus.setUserId(user.getId());
             myBonus.setTime(new Date());
             myBonus.setAnswer(answer);
-            myBonus.setCount(myBonus.getAnswer()+myBonus.getInvite());
+            myBonus.setCount(myBonus.getAnswer() + myBonus.getInvite());
             return ResultUtils.success(myBonusRepository.save(myBonus));
         }
-        myBonus.setAnswer(myBonus.getAnswer()+answer);
-        myBonus.setCount(myBonus.getAnswer()+myBonus.getInvite());
+        myBonus.setAnswer(myBonus.getAnswer() + answer);
+        myBonus.setCount(myBonus.getAnswer() + myBonus.getInvite());
         return ResultUtils.success(myBonusRepository.save(myBonus));
 
     }
 
     /**
      * 更新邀请奖金
+     *
      * @param token
      * @return
      */
@@ -234,20 +271,21 @@ public class UserService {
             myBonus.setUserId(user.getId());
             myBonus.setTime(new Date());
             myBonus.setInvite(SystemManger.InviteBonus);
-            myBonus.setCount(myBonus.getAnswer()+myBonus.getInvite());
+            myBonus.setCount(myBonus.getAnswer() + myBonus.getInvite());
             return ResultUtils.success(myBonusRepository.save(myBonus));
         }
-        myBonus.setInvite(myBonus.getInvite()+SystemManger.InviteBonus);
-        myBonus.setCount(myBonus.getAnswer()+myBonus.getInvite());
+        myBonus.setInvite(myBonus.getInvite() + SystemManger.InviteBonus);
+        myBonus.setCount(myBonus.getAnswer() + myBonus.getInvite());
         return ResultUtils.success(myBonusRepository.save(myBonus));
     }
 
     /**
      * 获取我的积分
+     *
      * @param token
      * @return
      */
-    public Result getMybonus(String token){
+    public Result getMybonus(String token) {
         User user = loginUserMap.get(token);
         MyBonus myBonus = myBonusRepository.findByUserId(user.getId());
         if (myBonus == null) {
@@ -257,6 +295,21 @@ public class UserService {
             return ResultUtils.success(myBonusRepository.save(myBonus));
         }
         return ResultUtils.success(myBonus);
+    }
+
+    public Result getMessage(String token) {
+        User user = loginUserMap.get(token);
+        List<Message> list = messageRespository.getMessagesByUserIdOrderByDate(user.getId());
+        return ResultUtils.success(list);
+    }
+    public Result updateMessage(String token) {
+        User user = loginUserMap.get(token);
+        List<Message> list = messageRespository.getMessagesByUserIdOrderByDate(user.getId());
+        for (Message message:list){
+            message.setState("1");
+            messageRespository.save(message);
+        }
+        return ResultUtils.success();
     }
 
     /**

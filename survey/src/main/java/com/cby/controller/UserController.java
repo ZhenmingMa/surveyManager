@@ -55,6 +55,7 @@ public class UserController {
         return userService.regisit(user, bindingResult);
     }
 
+
     /**
      * 登录
      *
@@ -67,16 +68,26 @@ public class UserController {
     }
 
     /**
-     * 更新用户信息
+     * 登录
      *
-     * @param bindingResult
+     * @param
      * @return
      */
-    @UserAccess
-    @PutMapping(value = "/login")
-    public Result userUpdate(String token, User user,
-                             BindingResult bindingResult) {
-        return userService.userUpdate(token, user, bindingResult);
+    @PostMapping(value = "/loginByPhone")
+    public Result loginByPhone(String phone) {
+        return userService.loginByPhone(phone);
+    }
+
+
+    /**
+     * 忘记密码
+     * @param phone
+     * @param password
+     * @return
+     */
+    @PostMapping(value = "/forgetPass")
+    public Result forgetPass(String phone,String password) {
+        return userService.forgetPass(phone,password);
     }
 
     /**
@@ -146,12 +157,28 @@ public class UserController {
         return userService.updateInviteMyBonus(token);
     }
 
-
+    /**
+     * 我的奖金
+     * @param token
+     * @return
+     */
     @UserAccess
     @PostMapping(value = "/getMyBonus")
     public Result getMyBonus(@RequestParam("token") String token) {
         return userService.getMybonus(token);
     }
+
+    @UserAccess
+    @PostMapping(value = "/getMessage")
+    public Result getMessage(String token){
+        return userService.getMessage(token);
+    }
+    @UserAccess
+    @PostMapping(value = "/updateMessage")
+    public Result updateMessage(String token){
+        return userService.updateMessage(token);
+    }
+
 //
 //    /**
 //     * 添加收货地址
@@ -219,4 +246,6 @@ public class UserController {
 //    public Result getALlAddress(@RequestParam("token")String token){
 //        return ResultUtils.success(userService.getAllAddress(token));
 //    }
+
+
 }

@@ -118,6 +118,6 @@ public class AddressService {
                 address.setCurrent(false);
             addressRepository.save(address);
         }
-        return ResultUtils.success();
+        return ResultUtils.success(list);
     }
 }

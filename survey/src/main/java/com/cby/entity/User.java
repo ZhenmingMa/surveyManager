@@ -29,8 +29,17 @@ public class User {
     private String occupation;
     private String income;
     private String hobby;
+    private String sex;
 
     public User() {
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getId() {
@@ -126,6 +135,7 @@ public class User {
                 ", occupation='" + occupation + '\'' +
                 ", income='" + income + '\'' +
                 ", hobby='" + hobby + '\'' +
+                ", sex='" + sex + '\'' +
                 '}';
     }
 }
